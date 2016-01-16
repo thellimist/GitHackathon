@@ -1,0 +1,6 @@
+framework module Pods_githackathon {
+  umbrella header "Pods-githackathon-umbrella.h"
+
+  export *
+  module * { export * }
+}

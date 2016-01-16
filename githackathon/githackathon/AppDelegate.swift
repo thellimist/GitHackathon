@@ -15,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // Enable Logging
+        QorumLogs.enabled = true
+        
+        // Load VC's
+        VCOrganizer.loadVC()
+        
+        // Set Main Screen
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let viewController = MotherVC()
+        window?.rootViewController = viewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
