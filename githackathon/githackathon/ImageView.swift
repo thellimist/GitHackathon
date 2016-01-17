@@ -57,8 +57,6 @@ class ImageView: CardSubView {
     
     func updateImage(image image: UIImage) {
         theImageView.image = image
-
-        theImageView.image = image
         theImageView.scaleImageFrameToWidth(width: currentCardView.CardWidth)
         self.frame = theImageView.frame
         currentCardView.adjustViewSizes(animated: false, resize: true)

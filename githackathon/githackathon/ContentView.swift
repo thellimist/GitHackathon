@@ -50,8 +50,4 @@ class ContentView: CardSubView {
     required init?(coder aDecoder: NSCoder) {
         super.init(frame: CGRect(x: 100, y: 100, w: 100, h: 100))
     }
-    
-//    func updateProfileImage(image image: UIImage) {
-//        profileImageView.image = image
-//    }
 }

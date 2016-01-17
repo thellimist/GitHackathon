@@ -34,7 +34,7 @@ class AuthorView: CardSubView {
         circle.drawCircle(fillColor: UIColor.whiteColor(), strokeColor: UIColor(r: 220, g: 220, b: 220), strokeWidth: 1)
         
         if currentCardView.data.authorMedia != nil {
-            profileImageView = UIImageView(x: 4, y: 4, w: Constants.ImageHeight, h: Constants.ImageHeight, image: currentCardView.data.authorMedia!)
+            profileImageView = UIImageView(x: 4, y: 4, w: currentCardView.data.authorMedia!.size.width, h: currentCardView.data.authorMedia!.size.height, image: currentCardView.data.authorMedia!)
         } else {
             profileImageView = UIImageView(x: 4, y: 4, w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "AuthorImagePlaceholder")
         }
@@ -78,6 +78,7 @@ class AuthorView: CardSubView {
     
     func updateProfileImage(image image: UIImage) {
         profileImageView.image = image
+        profileImageView.scaleImageFrameToWidth(width: Constants.ImageHeight)
     }
     
 }
