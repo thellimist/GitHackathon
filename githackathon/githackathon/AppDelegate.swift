@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+        // Setup Parse
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("Do0NA5c70BJvQ26hgcUJgRx4VPr9te5ZBjBEe8cX",
+            clientKey: "VGyVrqg039cGxu8SXCLYGkkBYnQFt761hAfqsfHy")
+        
+        Network.GetData()
+        
         // Enable Logging
         QorumLogs.enabled = true
         

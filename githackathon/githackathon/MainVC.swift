@@ -36,8 +36,8 @@ class MainVC: CardVC {
     func AddFakeCardData() {
         var cardData = CardData()
         cardData.text = "This guy drank 5 giliasdgasdfn of beer."
-        cardData.name = "JJ. Abrahams"
-        cardData.image = UIImage(named: "TestImage")
+        cardData.authorName = "JJ. Abrahams"
+        cardData.authorMedia = UIImage(named: "TestImage")
         
         
         ContentOrganizer.Cards.append(cardData)
