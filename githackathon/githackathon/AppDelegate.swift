@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set Main Screen
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let viewController = MotherVC()
+        let viewController = LandingVC()
         window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
         

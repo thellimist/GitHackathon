@@ -17,28 +17,21 @@ class MainCard: CardView {
     var data = CardData()
 
     // New stuff
-//    var authorView: AuthorView!
-//    var contentView: ContentView!
+    var authorView: AuthorView!
+    var contentView: ContentView!
 //    var imageView: ImageView!
     //==========================================================================================================
     // MARK: - CardView methods
     //==========================================================================================================
     override func setupView() {
         super.setupView()
-
-        // Not used currently
+        
         data = ContentOrganizer.Cards.first!
 
-        let nickLabel = UILabel(x: 10, y: 10, w: ez.screenWidth, h: 100)
-        nickLabel.backgroundColor = UIColor.redColor()
-        nickLabel.textAlignment = NSTextAlignment.Left
-        nickLabel.font = UIFont(name: Utility.ThemeFontName, size: 14)
-        nickLabel.text = data.text
-        nickLabel.resizeToFitWidth()
-        self.addSubview(nickLabel)
+        authorView = AuthorView(sender: self)
+        contentView = ContentView(sender: self)
+        
 
-        
-        
         self.layer.cornerRadius = 6
         
         adjustViewSizes(animated: false, resize: false)

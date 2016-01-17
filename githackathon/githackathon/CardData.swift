@@ -6,8 +6,10 @@
 //  Copyright © 2016 Furkan Yilmaz. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct CardData {
-    var text: String!
+    var name: String?
+    var image: UIImage?
+    var text: String?
 }

@@ -71,7 +71,7 @@ class CardVC: UIViewController {
     // MARK: - Card setup methods
     //==========================================================================================================
     
-    func setupCard(card card: CardView, canSendLeft: Bool, canSendRight: Bool, enableMovement: Bool) { //TODO: maybe get the sendleft andright from the card itself?
+    func setupCard(card card: CardView, canSendLeft: Bool, canSendRight: Bool, enableMovement: Bool) {
         currentCard = card
         canSendCardLeft = canSendLeft
         canSendCardRight = canSendRight

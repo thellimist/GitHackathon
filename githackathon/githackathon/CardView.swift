@@ -116,7 +116,7 @@ class CardView: UIView {
     //TODO: cardsize methods could be better named
     func cardSizeChanged() {
         let currentCardHeight = cardSize()
-        frame = CGRect(x: ez.screenWidth * 1 / 30, y: 10 + 44, width: CardWidth, height: currentCardHeight)
+        frame = CGRect(x: ez.screenWidth * 1 / 30, y: 10 + 100, width: CardWidth, height: currentCardHeight)
         
         if senderView?.keyboardShowing == true {
             
