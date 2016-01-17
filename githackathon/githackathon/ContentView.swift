@@ -18,7 +18,7 @@ class ContentView: CardSubView {
     override func setupView(sender sender: MainCard) {
         super.setupView(sender: sender)
         
-        let contentTextView = UITextView(x: Constants.Padding, y: 0, w: w - Constants.Padding*2, h: h - Constants.Padding)
+        let contentTextView = UITextView(x: Constants.Padding, y: 50, w: w - Constants.Padding*2, h: h - Constants.Padding)
         //        contentTextView.backgroundColor = UIColor.redColor()
         contentTextView.font = UIFont(name: Utility.ThemeFontName, size: 14)
         contentTextView.textAlignment = NSTextAlignment.Center
@@ -47,4 +47,7 @@ class ContentView: CardSubView {
         super.init(frame: CGRect(x: 100, y: 100, w: 100, h: 100))
     }
     
+//    func updateProfileImage(image image: UIImage) {
+//        profileImageView.image = image
+//    }
 }

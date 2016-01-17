@@ -27,10 +27,19 @@ class MainCard: CardView {
         super.setupView()
         
         data = ContentOrganizer.Cards.first!
+        data.delegate = self
 
         authorView = AuthorView(sender: self)
         contentView = ContentView(sender: self)
         
+        if let url = data.authorMediaURL {
+            ez.requestImage(url, success: { (image) -> Void in
+                self.data.authorMedia = image
+                if self.data.delegate != nil {
+                    self.data.delegate!.profileImageLoaded(image: image!)
+                }
+            })
+        }
 
         self.layer.cornerRadius = 6
         
@@ -52,5 +61,16 @@ class MainCard: CardView {
 
 }
 
+extension MainCard: CardDataDelegate {
+    func profileImageLoaded(image image: UIImage) {
+        QL1("card profile image loaded!")
+        authorView.updateProfileImage(image: image)
+    }
+    
+//    func imageLoaded(image image: UIImage) {
+//        QL2("loaded card image!")
+//        imageView.updateImage(image: image)
+//    }
+}
 
 

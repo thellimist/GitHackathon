@@ -15,8 +15,11 @@ struct VCOrganizer {
     static var MainVCHolder: MainVC!
     static var LandingVCHolder: LandingVC!
     
+    static var LoadingFinished = false
+    
     static func loadVC() {
         MainVCHolder = MainVC()
         LandingVCHolder = LandingVC()
+        LoadingFinished.toggle()
     }
 }

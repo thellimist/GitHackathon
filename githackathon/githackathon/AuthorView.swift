@@ -40,12 +40,13 @@ class AuthorView: CardSubView {
         if currentCardView.data.authorMedia != nil {
             profileImageView = UIImageView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight, h: Constants.ImageHeight, image: currentCardView.data.authorMedia!)
         } else {
-            profileImageView = UIImageView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: 0, w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "Placeholder")
+            profileImageView = UIImageView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "Placeholder")
         }
         //        profileImageView.backgroundColor = UIColor.grayColor()
 //        profileImageView.layer.borderWidth = 1
 //        profileImageView.layer.borderColor = UIColor.grayColor().CGColor
         profileImageView.roundSquareImage()
+        profileImageView.backgroundColor = UIColor.whiteColor()
         profileView.addSubview(profileImageView)
         //============================== profileImageView ==============================
         
@@ -54,7 +55,11 @@ class AuthorView: CardSubView {
 //        nickLabel.backgroundColor = UIColor.redColor()
         nickLabel.textAlignment = NSTextAlignment.Left
         nickLabel.font = UIFont(name: Utility.ThemeFontName, size: 14)
-        nickLabel.text = currentCardView.data.authorName
+        if currentCardView.data.authorName == nil {
+            nickLabel.text = "Fun Fact"
+        } else {
+            nickLabel.text = currentCardView.data.authorName
+        }
         nickLabel.resizeToFitWidth()
         nickLabel.frame = CGRect(x: (sender.CardWidth - nickLabel.w) / 2, y: profileImageView.bottomOffset(20), w: Constants.WidthToResize, h: Constants.NameHeight)
         nickLabel.resizeToFitWidth()
@@ -73,4 +78,9 @@ class AuthorView: CardSubView {
         super.init(frame: CGRect(x: 100, y: 100, w: 100, h: 100))
     }
     
+    func updateProfileImage(image image: UIImage) {
+        profileImageView.image = image
+    }
+    
 }
+

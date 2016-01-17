@@ -16,8 +16,6 @@ class MainVC: CardVC {
         super.viewDidLoad()
         QL1("MainVC loaded")
         view.backgroundColor = UIColor.blueColor()
-        
-        createNewCard()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,22 +31,11 @@ class MainVC: CardVC {
         QL3("Memory Warning")
     }
     
-    func AddFakeCardData() {
-        var cardData = CardData()
-        cardData.text = "This guy drank 5 giliasdgasdfn of beer."
-        cardData.authorName = "JJ. Abrahams"
-        cardData.authorMedia = UIImage(named: "TestImage")
-        
-        
-        ContentOrganizer.Cards.append(cardData)
-    }
-    
     //==========================================================================================================
     // MARK: - Custom card creation
     //==========================================================================================================
     
     func createNewCard() {
-        AddFakeCardData()
         //        currentCardIndex = CardLoader.nextAvailableCard()
         //        QL2("card id \(currentCardIndex)")
         QL2("Creating Card")

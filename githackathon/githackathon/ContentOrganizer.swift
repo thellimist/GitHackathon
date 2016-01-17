@@ -34,7 +34,13 @@ struct ContentOrganizer {
     }
     
     static func shouldLoadData() {
-        
+        // Maybe pagination?
+    }
+    
+    static func shouldCreateCard() {
+        if VCOrganizer.LoadingFinished && VCOrganizer.MainVCHolder.currentCard == nil {
+            VCOrganizer.MainVCHolder.createNewCard()
+        }
     }
 }
 

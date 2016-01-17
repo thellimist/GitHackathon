@@ -8,6 +8,12 @@
 
 import UIKit
 import Parse
+import EZSwiftExtensions
+
+protocol CardDataDelegate {
+    func profileImageLoaded(image image: UIImage)
+//    func imageLoaded(image image: UIImage)
+}
 
 struct CardData {
     var objectId: String?
@@ -18,6 +24,8 @@ struct CardData {
     var authorName: String?
     var authorMedia: UIImage?
     var authorMediaURL: String?
+    
+    var delegate: CardDataDelegate?
     
     init() {
    
@@ -44,8 +52,17 @@ struct CardData {
             if let unwrappedName = unwrappedAuthor.objectForKey("name") as? String {
                 authorName = unwrappedName
             }
+            
             if let unwrappedMedia = unwrappedAuthor.objectForKey("media") as? String {
                 authorMediaURL = unwrappedMedia
+                
+                var card = self
+                ez.requestImage(authorMediaURL!, success: { (image) -> Void in
+                    card.authorMedia = image
+                    if card.delegate != nil {
+                        card.delegate!.profileImageLoaded(image: image!)
+                    }
+                })
             }
         }
     }

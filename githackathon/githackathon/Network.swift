@@ -12,7 +12,7 @@ import Parse
 
 class Network {
     static func GetData() {
-        var query = PFQuery(className: "githack")
+        let query = PFQuery(className: "githack")
         query.includeKey("author")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
@@ -23,9 +23,13 @@ class Network {
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
-                        var cardData = CardData(result: object)
+                        let cardData = CardData(result: object)
                         ContentOrganizer.Cards.append(cardData)
                     }
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    ContentOrganizer.shouldCreateCard()
                 }
             } else {
                 // Log details of the failure
