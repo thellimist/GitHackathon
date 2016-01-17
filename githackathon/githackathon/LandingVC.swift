@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import EZSwiftExtensions
 
 class LandingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.purpleColor()
         
-        // Change this with orijinal image
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundLanding")!)
+        let scaledImage = Utility.imageResize(UIImage(named: "BackgroundLanding")!, sizeChange: CGSize(width: ez.screenWidth, height: ez.screenHeight))
+        
+        self.view.backgroundColor = UIColor(patternImage: scaledImage)
     }
     
     override func viewDidAppear(animated: Bool) {

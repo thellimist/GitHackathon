@@ -13,6 +13,18 @@ struct Utility {
     
     static let ThemeFontName = "HelveticaNeue"
     
+    static func imageResize (image:UIImage, sizeChange:CGSize)-> UIImage{
+        
+        let hasAlpha = true
+        let scale: CGFloat = 0.0 // Use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
+        image.drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        return scaledImage
+    }
+    
     static func getValueForCurrentScreenSize(iphone4 iphone4: Int, iphone5: Int, iphone6: Int, iphone6p: Int, ipad: Int) -> Int {
         if ez.screenWidth == 320 && ez.screenHeight == 480 {  //320 480 iphone4
             return iphone4
