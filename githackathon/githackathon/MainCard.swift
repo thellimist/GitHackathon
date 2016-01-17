@@ -19,7 +19,7 @@ class MainCard: CardView {
     // New stuff
     var authorView: AuthorView!
     var contentView: ContentView!
-//    var imageView: ImageView!
+    var imageView: ImageView!
     //==========================================================================================================
     // MARK: - CardView methods
     //==========================================================================================================
@@ -30,7 +30,14 @@ class MainCard: CardView {
         data.delegate = self
 
         authorView = AuthorView(sender: self)
+        
+        if data.mediaURL != nil {
+            imageView = ImageView(sender: self)
+        }
+        
         contentView = ContentView(sender: self)
+        
+        
         
         if let url = data.authorMediaURL {
             ez.requestImage(url, success: { (image) -> Void in
@@ -40,6 +47,16 @@ class MainCard: CardView {
                 }
             })
         }
+
+        if let url = data.mediaURL {
+            ez.requestImage(url, success: { (image) -> Void in
+                self.data.media = image
+                if self.data.delegate != nil {
+                    self.data.delegate!.imageLoaded(image: image!)
+                }
+            })
+        }
+
 
         self.layer.cornerRadius = 6
         
@@ -67,10 +84,10 @@ extension MainCard: CardDataDelegate {
         authorView.updateProfileImage(image: image)
     }
     
-//    func imageLoaded(image image: UIImage) {
-//        QL2("loaded card image!")
-//        imageView.updateImage(image: image)
-//    }
+    func imageLoaded(image image: UIImage) {
+        QL2("loaded card image!")
+        imageView.updateImage(image: image)
+    }
 }
 
 

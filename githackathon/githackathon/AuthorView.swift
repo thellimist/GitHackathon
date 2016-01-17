@@ -1,13 +1,5 @@
 //
 //  AuthorView.swift
-//  githackathon
-//
-//  Created by Furkan Yilmaz on 16/01/16.
-//  Copyright © 2016 Furkan Yilmaz. All rights reserved.
-//
-
-//
-//  AuthorView.swift
 //  Qorum
 //
 //  Created by Goktug Yilmaz on 07/08/15.
@@ -37,10 +29,7 @@ class AuthorView: CardSubView {
         let profileView = UIView()
         insideFrame.addSubview(profileView)
         //============================== profileImageView ==============================
-        
-//        var encaplulateImageView = UIView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight, h: Constants.ImageHeight)
-        
-        var circle = UIView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight + 8, h: Constants.ImageHeight + 8)
+        let circle = UIView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight + 8, h: Constants.ImageHeight + 8)
             
         circle.drawCircle(fillColor: UIColor.whiteColor(), strokeColor: UIColor(r: 220, g: 220, b: 220), strokeWidth: 1)
         

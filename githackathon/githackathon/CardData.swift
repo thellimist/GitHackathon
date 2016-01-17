@@ -12,7 +12,7 @@ import EZSwiftExtensions
 
 protocol CardDataDelegate {
     func profileImageLoaded(image image: UIImage)
-//    func imageLoaded(image image: UIImage)
+    func imageLoaded(image image: UIImage)
 }
 
 struct CardData {
@@ -45,7 +45,16 @@ struct CardData {
         }
         
         if let unwrappedMedia = result.objectForKey("media") as? String {
-            mediaURL = unwrappedMedia
+            if unwrappedMedia != "" {
+                mediaURL = unwrappedMedia
+                
+//                ez.requestImage(mediaURL!, success: { (image) -> Void in
+//                    self.media = image
+//                    if self.delegate != nil {
+//                        self.delegate!.imageLoaded(image: image!)
+//                    }
+//                })
+            }
         }
         
         if let unwrappedAuthor = result.objectForKey("author") as? PFObject {
@@ -56,13 +65,12 @@ struct CardData {
             if let unwrappedMedia = unwrappedAuthor.objectForKey("media") as? String {
                 authorMediaURL = unwrappedMedia
                 
-                var card = self
-                ez.requestImage(authorMediaURL!, success: { (image) -> Void in
-                    card.authorMedia = image
-                    if card.delegate != nil {
-                        card.delegate!.profileImageLoaded(image: image!)
-                    }
-                })
+//                ez.requestImage(authorMediaURL!, success: { (image) -> Void in
+//                    self.authorMedia = image
+//                    if self.delegate != nil {
+//                        self.delegate!.profileImageLoaded(image: image!)
+//                    }
+//                })
             }
         }
     }

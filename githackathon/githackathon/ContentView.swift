@@ -28,9 +28,9 @@ class ContentView: CardSubView {
         contentTextView.dataDetectorTypes = UIDataDetectorTypes.Link
         contentTextView.resizeToFitHeight()
         
-        if contentTextView.h < 100 {
-            contentTextView.h = 100
-        }
+//        if contentTextView.h < 100 {
+//            contentTextView.h = 100
+//        }
         
         addSubview(contentTextView)
         resizeToFitSubviews()

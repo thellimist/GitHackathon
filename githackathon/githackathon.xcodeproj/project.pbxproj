@@ -26,6 +26,7 @@
 		DC66D9E71C4B31390098B41A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9E61C4B31390098B41A /* ContentView.swift */; };
 		DC66D9E91C4B48D40098B41A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9E81C4B48D40098B41A /* Network.swift */; };
 		DC66D9EC1C4B94D50098B41A /* SFCompactDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC66D9EB1C4B946E0098B41A /* SFCompactDisplay-Regular.ttf */; };
+		DC66D9EE1C4B96D70098B41A /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9ED1C4B96D70098B41A /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		DC66D9E61C4B31390098B41A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DC66D9E81C4B48D40098B41A /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DC66D9EB1C4B946E0098B41A /* SFCompactDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		DC66D9ED1C4B96D70098B41A /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		FA7F5369949AC036FFB2CAB4 /* Pods_githackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 			children = (
 				DC66D9E41C4B1C520098B41A /* AuthorView.swift */,
 				DC66D9E61C4B31390098B41A /* ContentView.swift */,
+				DC66D9ED1C4B96D70098B41A /* ImageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				DC66D9D11C4AFEA00098B41A /* CardView.swift in Sources */,
 				DC66D9DD1C4B050B0098B41A /* ContentOrganizer.swift in Sources */,
 				DC66D9E91C4B48D40098B41A /* Network.swift in Sources */,
+				DC66D9EE1C4B96D70098B41A /* ImageView.swift in Sources */,
 				DC66D9E21C4B12A00098B41A /* LandingVC.swift in Sources */,
 				DC66D9CD1C4AFDFB0098B41A /* CardSubView.swift in Sources */,
 				DC66D9D31C4AFF690098B41A /* CardVC.swift in Sources */,
