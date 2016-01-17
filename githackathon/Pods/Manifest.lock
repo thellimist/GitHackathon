@@ -1,16 +1,22 @@
 PODS:
   - Alamofire (3.1.4)
+  - Bolts/Tasks (1.6.0)
   - EZSwiftExtensions (1.0.5)
   - EZSwipeController (0.4)
+  - Parse (1.12.0):
+    - Bolts/Tasks (~> 1.5)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - EZSwiftExtensions
   - EZSwipeController
+  - Parse
 
 SPEC CHECKSUMS:
   Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
+  Bolts: f52a250053bb517ca874523c3913776359ab3def
   EZSwiftExtensions: b4369331aa7a0fcfca8bb7d2467567bcd237f083
   EZSwipeController: 49aa0f869e66049ac433483120f458434272ee32
+  Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
 
 COCOAPODS: 0.39.0

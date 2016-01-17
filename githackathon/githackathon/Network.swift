@@ -9,20 +9,17 @@
 import Alamofire
 import UIKit
 
-struct IBMWatson {
+struct Parse {
     
     enum Router: URLRequestConvertible {
-        static let baseURLString = "https://api.instagram.com"
-        static let clientID = "31aeb778aa24439fafcf32bf22643b16"
-        static let redirectURI = "http://www.example.com/"
-        static let clientSecret = "53324118a75c433b92bb135a9e1b4b8f"
-        
-        case Mood(String)
+        static let baseURLString = "https://api.parse.com"
+
+        case GetData(String)
         
         var URLRequest: NSMutableURLRequest {
             let result: (path: String, parameters: [String: AnyObject]?) = {
                 switch self {
-                case .Mood(let accessToken):
+                case .GetData(let accessToken):
                     let params = ["access_token": accessToken]
                     let pathString = "/v1/media/popular"
                     return (pathString, params)
