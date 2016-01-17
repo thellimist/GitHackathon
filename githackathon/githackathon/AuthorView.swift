@@ -36,7 +36,7 @@ class AuthorView: CardSubView {
         if currentCardView.data.authorMedia != nil {
             profileImageView = UIImageView(x: 4, y: 4, w: Constants.ImageHeight, h: Constants.ImageHeight, image: currentCardView.data.authorMedia!)
         } else {
-            profileImageView = UIImageView(x: 4, y: 4, w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "Placeholder")
+            profileImageView = UIImageView(x: 4, y: 4, w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "AuthorImagePlaceholder")
         }
         //        profileImageView.backgroundColor = UIColor.grayColor()
         profileImageView.layer.borderWidth = 1
