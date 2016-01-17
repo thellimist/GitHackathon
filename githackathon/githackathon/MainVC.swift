@@ -11,11 +11,40 @@ import UIKit
 
 class MainVC: CardVC {
 
+    var tutorialContainer: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         QL1("MainVC loaded")
-        view.backgroundColor = UIColor.blueColor()
+        view.backgroundColor = Utility.TeamRedColor
+        
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            self.view.backgroundColor = UIColor.clearColor()
+            
+            tutorialContainer = UIView()
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            
+            let handIndicatorGif = UIImage.gifWithName("HandIndicator")
+            let handIndicatorGifView = UIImageView(x: ez.screenWidth / 2 - 110, y: ez.screenHeight - 400, w: 220, h: 400, image: handIndicatorGif!)
+            
+            tutorialContainer?.addSubview(blurEffectView)
+            tutorialContainer?.addSubview(handIndicatorGifView)
+            
+            self.view.addSubview(tutorialContainer!)
+            
+            let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap"))
+            tap.delegate = self
+            self.view.addGestureRecognizer(tap)
+        } 
+        else {
+            self.view.backgroundColor = UIColor.blackColor()
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -29,6 +58,17 @@ class MainVC: CardVC {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         QL3("Memory Warning")
+    }
+    
+    func handleTap() {
+        print("tap working")
+        UIView.animateWithDuration(1.5 as NSTimeInterval, animations: {
+            self.tutorialContainer!.alpha = 0
+            }, completion: {
+                finished in
+                self.tutorialContainer!.alpha = 1
+                self.tutorialContainer!.removeFromSuperview()
+        })
     }
     
     //==========================================================================================================
@@ -48,6 +88,13 @@ class MainVC: CardVC {
             
             setupCard(card: newCard, canSendLeft: true, canSendRight: true, enableMovement: true)
             ContentOrganizer.CardsFinished = false
+            
+            let id = ContentOrganizer.Cards.first?.id
+            if (id!.isEven) {
+                view.backgroundColor = Utility.TeamRedColor
+            } else {
+                view.backgroundColor = Utility.TeamBlueColor
+            }
         }
     }
     

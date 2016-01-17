@@ -27,6 +27,8 @@
 		DC66D9E91C4B48D40098B41A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9E81C4B48D40098B41A /* Network.swift */; };
 		DC66D9EC1C4B94D50098B41A /* SFCompactDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC66D9EB1C4B946E0098B41A /* SFCompactDisplay-Regular.ttf */; };
 		DC66D9EE1C4B96D70098B41A /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9ED1C4B96D70098B41A /* ImageView.swift */; };
+		DC66D9F01C4B9EE40098B41A /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9EF1C4B9EE40098B41A /* Gif.swift */; };
+		DC66D9F41C4BA1960098B41A /* HandIndicator.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC66D9F31C4BA1960098B41A /* HandIndicator.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		DC66D9E81C4B48D40098B41A /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DC66D9EB1C4B946E0098B41A /* SFCompactDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFCompactDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		DC66D9ED1C4B96D70098B41A /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		DC66D9EF1C4B9EE40098B41A /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		DC66D9F31C4BA1960098B41A /* HandIndicator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HandIndicator.gif; sourceTree = "<group>"; };
 		FA7F5369949AC036FFB2CAB4 /* Pods_githackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,7 @@
 		DC66D9B21C4ABB7C0098B41A /* githackathon */ = {
 			isa = PBXGroup;
 			children = (
+				DC66D9F31C4BA1960098B41A /* HandIndicator.gif */,
 				DC66D9EB1C4B946E0098B41A /* SFCompactDisplay-Regular.ttf */,
 				DC66D9EA1C4B4B520098B41A /* Network */,
 				DC66D9D71C4B00870098B41A /* Modal */,
@@ -136,6 +141,7 @@
 			children = (
 				DC66D9D51C4B00280098B41A /* QorumLogs.swift */,
 				DC66D9DA1C4B02F40098B41A /* Utility.swift */,
+				DC66D9EF1C4B9EE40098B41A /* Gif.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			files = (
 				DC66D9BB1C4ABB7C0098B41A /* Assets.xcassets in Resources */,
 				DC66D9EC1C4B94D50098B41A /* SFCompactDisplay-Regular.ttf in Resources */,
+				DC66D9F41C4BA1960098B41A /* HandIndicator.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +314,7 @@
 				DC66D9CD1C4AFDFB0098B41A /* CardSubView.swift in Sources */,
 				DC66D9D31C4AFF690098B41A /* CardVC.swift in Sources */,
 				DC66D9DB1C4B02F40098B41A /* Utility.swift in Sources */,
+				DC66D9F01C4B9EE40098B41A /* Gif.swift in Sources */,
 				DC66D9DF1C4B063F0098B41A /* SwipeAction.swift in Sources */,
 				DC66D9C81C4AF89D0098B41A /* MainVC.swift in Sources */,
 				DC66D9D91C4B008E0098B41A /* CardData.swift in Sources */,

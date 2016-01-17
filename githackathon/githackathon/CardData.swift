@@ -15,7 +15,10 @@ protocol CardDataDelegate {
     func imageLoaded(image image: UIImage)
 }
 
+var GlobalCardId = 0
+
 struct CardData {
+    var id: Int?
     var objectId: String?
     var text: String?
     var media: UIImage?
@@ -35,6 +38,7 @@ struct CardData {
         result.objectForKey("author")
         
         objectId = result["id"] as? String
+        id = GlobalCardId++
         
         if let unwrappedText = result.objectForKey("text") as? String {
             text = unwrappedText

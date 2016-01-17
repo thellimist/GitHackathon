@@ -13,6 +13,9 @@ struct Utility {
     
     static let ThemeFontName = "SFCompactDisplay-Regular"
     
+    static let TeamRedColor = UIColor(r: 207, g: 32, b: 40)
+    static let TeamBlueColor = UIColor(r: 0, g: 41, b: 92)
+    
     static func imageResize (image:UIImage, sizeChange:CGSize)-> UIImage{
         
         let hasAlpha = true
