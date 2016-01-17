@@ -17,9 +17,10 @@ class ContentView: CardSubView {
     
     override func setupView(sender sender: MainCard) {
         super.setupView(sender: sender)
-        
+
+//        backgroundColor = UIColor.greenColor()
         let contentTextView = UITextView(x: Constants.Padding, y: 0, w: w - Constants.Padding*2, h: h - Constants.Padding)
-        //        contentTextView.backgroundColor = UIColor.redColor()
+//                contentTextView.backgroundColor = UIColor.redColor()
         contentTextView.font = UIFont(name: Utility.ThemeFontName, size: 20)
         contentTextView.textAlignment = NSTextAlignment.Left
         contentTextView.text = currentCardView.data.text
@@ -28,13 +29,15 @@ class ContentView: CardSubView {
         contentTextView.dataDetectorTypes = UIDataDetectorTypes.Link
         contentTextView.resizeToFitHeight()
         
+        addSubview(contentTextView)
+        resizeToFitSubviews()
         if (sender.data.mediaURL != nil) {
             contentTextView.frame.origin.y = 10
             contentTextView.font = UIFont(name: Utility.ThemeFontName, size: 16)
+            contentTextView.resizeToFitHeight()
+            resizeToFitSubviews()
+
         }
-        
-        addSubview(contentTextView)
-        resizeToFitSubviews()
         w += Constants.Padding
         h += Constants.Padding
     }
