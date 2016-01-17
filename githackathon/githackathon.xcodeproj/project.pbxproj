@@ -24,6 +24,7 @@
 		DC66D9E21C4B12A00098B41A /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9E11C4B12A00098B41A /* LandingVC.swift */; };
 		DC66D9E51C4B1C520098B41A /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9E41C4B1C520098B41A /* AuthorView.swift */; };
 		DC66D9E71C4B31390098B41A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9E61C4B31390098B41A /* ContentView.swift */; };
+		DC66D9E91C4B48D40098B41A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66D9E81C4B48D40098B41A /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		DC66D9E11C4B12A00098B41A /* LandingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		DC66D9E41C4B1C520098B41A /* AuthorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
 		DC66D9E61C4B31390098B41A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DC66D9E81C4B48D40098B41A /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FA7F5369949AC036FFB2CAB4 /* Pods_githackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		DC66D9B21C4ABB7C0098B41A /* githackathon */ = {
 			isa = PBXGroup;
 			children = (
+				DC66D9EA1C4B4B520098B41A /* Network */,
 				DC66D9D71C4B00870098B41A /* Modal */,
 				DC66D9D41C4B00100098B41A /* Utils */,
 				DC66D9CB1C4AFDD50098B41A /* SwipableCard */,
@@ -159,6 +162,14 @@
 				DC66D9E61C4B31390098B41A /* ContentView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		DC66D9EA1C4B4B520098B41A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DC66D9E81C4B48D40098B41A /* Network.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +294,7 @@
 			files = (
 				DC66D9D11C4AFEA00098B41A /* CardView.swift in Sources */,
 				DC66D9DD1C4B050B0098B41A /* ContentOrganizer.swift in Sources */,
+				DC66D9E91C4B48D40098B41A /* Network.swift in Sources */,
 				DC66D9E21C4B12A00098B41A /* LandingVC.swift in Sources */,
 				DC66D9CD1C4AFDFB0098B41A /* CardSubView.swift in Sources */,
 				DC66D9D31C4AFF690098B41A /* CardVC.swift in Sources */,

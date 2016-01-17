@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-githackathon/Alamofire.framework"
   install_framework "Pods-githackathon/EZSwiftExtensions.framework"
   install_framework "Pods-githackathon/EZSwipeController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-githackathon/Alamofire.framework"
   install_framework "Pods-githackathon/EZSwiftExtensions.framework"
   install_framework "Pods-githackathon/EZSwipeController.framework"
 fi
