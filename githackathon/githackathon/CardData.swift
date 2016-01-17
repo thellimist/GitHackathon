@@ -27,11 +27,17 @@ struct CardData {
     var authorName: String?
     var authorMedia: UIImage?
     var authorMediaURL: String?
+    var personalities: [Personality]?
+    
+    struct Personality {
+        var name: String?
+        var percentage: String?
+    }
     
     var delegate: CardDataDelegate?
     
     init() {
-   
+
     }
     
     init(result: PFObject) {
@@ -44,20 +50,9 @@ struct CardData {
             text = unwrappedText
         }
         
-        if let unwrappedTwitter = result.objectForKey("twitter") as? String {
-            twitter = unwrappedTwitter
-        }
-        
         if let unwrappedMedia = result.objectForKey("media") as? String {
             if unwrappedMedia != "" {
                 mediaURL = unwrappedMedia
-                
-//                ez.requestImage(mediaURL!, success: { (image) -> Void in
-//                    self.media = image
-//                    if self.delegate != nil {
-//                        self.delegate!.imageLoaded(image: image!)
-//                    }
-//                })
             }
         }
         
@@ -68,13 +63,10 @@ struct CardData {
             
             if let unwrappedMedia = unwrappedAuthor.objectForKey("media") as? String {
                 authorMediaURL = unwrappedMedia
-                
-//                ez.requestImage(authorMediaURL!, success: { (image) -> Void in
-//                    self.authorMedia = image
-//                    if self.delegate != nil {
-//                        self.delegate!.profileImageLoaded(image: image!)
-//                    }
-//                })
+            }
+            
+            if let unwrappedTwitter = unwrappedAuthor.objectForKey("twitter") as? String {
+                twitter = unwrappedTwitter
             }
         }
     }

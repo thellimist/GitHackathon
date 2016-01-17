@@ -6,7 +6,7 @@
 //  Copyright © 2016 Furkan Yilmaz. All rights reserved.
 //
 
-//import Alamofire
+import Alamofire
 //import UIKit
 import Parse
 
@@ -40,30 +40,27 @@ class Network {
     }
 }
 
+struct IBM {
+    
+    enum Router: URLRequestConvertible {
+        static let baseURLString = "http://friend01k.herokuapp.com"
 
-//
-//struct Parse {
-//    
-//    enum Router: URLRequestConvertible {
-//        static let baseURLString = "https://api.parse.com"
-//
-//        case GetData(String)
-//        
-//        var URLRequest: NSMutableURLRequest {
-//            let result: (path: String, parameters: [String: AnyObject]?) = {
-//                switch self {
-//                case .GetData(let accessToken):
-//                    let params = ["access_token": accessToken]
-//                    let pathString = "/v1/media/popular"
-//                    return (pathString, params)
-//                }
-//            }()
-//            
-//            let BaeseURL = NSURL(string: Router.baseURLString)!
-//            let URLRequest = NSURLRequest(URL: BaeseURL.URLByAppendingPathComponent(result.path))
-//            let encoding = Alamofire.ParameterEncoding.URL
-//            return encoding.encode(URLRequest, parameters: result.parameters).0
-//        }
-//        
-//    }
-//}
+        case GetPersonality(twitterUsername: String)
+        
+        var URLRequest: NSMutableURLRequest {
+            let result: (path: String, parameters: [String: AnyObject]?) = {
+                switch self {
+                case .GetPersonality(let twitterUsername):
+                    let pathString = "/api/twitter_watson/\(twitterUsername)"
+                    return (pathString, nil)
+                }
+            }()
+            
+            let BaeseURL = NSURL(string: Router.baseURLString)!
+            let URLRequest = NSURLRequest(URL: BaeseURL.URLByAppendingPathComponent(result.path))
+            let encoding = Alamofire.ParameterEncoding.URL
+            return encoding.encode(URLRequest, parameters: result.parameters).0
+        }
+        
+    }
+}
