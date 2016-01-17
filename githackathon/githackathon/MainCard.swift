@@ -20,6 +20,7 @@ class MainCard: CardView {
     var authorView: AuthorView!
     var contentView: ContentView!
     var imageView: ImageView!
+    var personalityView: PersonalityView!
     //==========================================================================================================
     // MARK: - CardView methods
     //==========================================================================================================
@@ -36,9 +37,8 @@ class MainCard: CardView {
         }
         
         contentView = ContentView(sender: self)
-        
-        
-        
+//        personalityView = PersonalityView(sender: self)
+                
         if let url = data.authorMediaURL {
             ez.requestImage(url, success: { (image) -> Void in
                 self.data.authorMedia = image
@@ -56,12 +56,15 @@ class MainCard: CardView {
                 }
             })
         }
-
+        
+        getPersonalitiesAsync()
 
         self.layer.cornerRadius = 6
         
         adjustViewSizes(animated: false, resize: false)
     }
+
+
     
     override func cardCreationDidFinish() {
         super.cardCreationDidFinish()
@@ -75,6 +78,54 @@ class MainCard: CardView {
         }
     }
     
+    func getPersonalitiesAsync() {
+        if (data.twitter != nil) {
+            ez.requestJSON("http://friend01k.herokuapp.com/api/twitter_watson/\(data.twitter!)", success: { (jsonData) -> Void in
+                
+                let JSON = jsonData as! NSDictionary
+                
+                for (k1,v1) in JSON["tree"] as! NSDictionary {
+                    if k1 as! String == "children" {
+                        for v2 in v1 as! NSArray {
+                            for (k3,v3) in v2 as! NSDictionary {
+                                if k3 as! String == "children" {
+                                    for v4 in v3 as! NSArray {
+                                        if v4["category"] as! String == "personality" {
+                                            for v5 in v4["children"] as! NSArray {
+                                                for v6 in v5["children"] as! NSArray {
+                                                    var personality = CardData.Personality()
+                                                    personality.name = v6["name"] as? String
+                                                    personality.percentage = String(v6["percentage"] as! Float)
+                                                    if (self.data.personalities == nil) {
+                                                        self.data.personalities = [personality]
+                                                    } else {
+                                                        self.data.personalities!.append(personality)
+                                                    }
+                                                    
+                                                    
+                                                }
+//                                                if self.data.delegate != nil {
+//                                                    self.data.delegate!.personalityLoaded(self.data.personalities!)
+//                                                }
+                                                return
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                    
+                    
+                }
+                
+                }, error: { (err) -> Void in
+                    QL4(err)
+            })
+            
+        }
+    }
 
 }
 
@@ -87,6 +138,11 @@ extension MainCard: CardDataDelegate {
     func imageLoaded(image image: UIImage) {
         QL2("loaded card image!")
         imageView.updateImage(image: image)
+    }
+    
+    func personalityLoaded(personalities: [CardData.Personality]) {
+        QL2("loaded card image!")
+        personalityView.updatePersonality(personalities)
     }
 }
 

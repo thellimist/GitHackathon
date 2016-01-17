@@ -39,28 +39,3 @@ class Network {
 
     }
 }
-
-struct IBM {
-    
-    enum Router: URLRequestConvertible {
-        static let baseURLString = "http://friend01k.herokuapp.com"
-
-        case GetPersonality(twitterUsername: String)
-        
-        var URLRequest: NSMutableURLRequest {
-            let result: (path: String, parameters: [String: AnyObject]?) = {
-                switch self {
-                case .GetPersonality(let twitterUsername):
-                    let pathString = "/api/twitter_watson/\(twitterUsername)"
-                    return (pathString, nil)
-                }
-            }()
-            
-            let BaeseURL = NSURL(string: Router.baseURLString)!
-            let URLRequest = NSURLRequest(URL: BaeseURL.URLByAppendingPathComponent(result.path))
-            let encoding = Alamofire.ParameterEncoding.URL
-            return encoding.encode(URLRequest, parameters: result.parameters).0
-        }
-        
-    }
-}

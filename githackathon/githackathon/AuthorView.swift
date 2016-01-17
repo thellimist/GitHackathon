@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EZAlertController
 
 class AuthorView: CardSubView {
     
@@ -64,7 +65,14 @@ class AuthorView: CardSubView {
         profileView.addSubview(nickLabel)
         //============================== Nick Label ==============================
         
+        //============================== Info Button ==============================
+        let infoButton = UIButton(x: sender.CardWidth - 10 - 24, y: 10, w: 24, h: 24)
+        infoButton.setImage(UIImage(named: "statistics"), forState: .Normal)
+        infoButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        //============================== Info Button ==============================
+        
         addSubview(insideFrame)
+        addSubview(infoButton)
     }
     
     init(sender: MainCard) {
@@ -74,6 +82,20 @@ class AuthorView: CardSubView {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(frame: CGRect(x: 100, y: 100, w: 100, h: 100))
+    }
+    
+    func buttonAction(sender:UIButton!)
+    {
+        QL4("Button tapped")
+        
+        if let personalities = self.currentCardView.data.personalities {
+            var text = ""
+            for personality in personalities {
+                text += "\(personality.name!): \(personality.percentage!)\n"
+            }
+            
+            EZAlertController.alert(text)
+        }
     }
     
     func updateProfileImage(image image: UIImage) {

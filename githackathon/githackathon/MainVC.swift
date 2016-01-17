@@ -37,10 +37,10 @@ class MainVC: CardVC {
             
             self.view.addSubview(tutorialContainer!)
             
-            let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap"))
+            let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
             tap.delegate = self
             self.view.addGestureRecognizer(tap)
-        } 
+        }
         else {
             self.view.backgroundColor = UIColor.blackColor()
         }
@@ -60,7 +60,7 @@ class MainVC: CardVC {
         QL3("Memory Warning")
     }
     
-    func handleTap() {
+    func handleTap(tap: UITapGestureRecognizer) {
         print("tap working")
         UIView.animateWithDuration(1.5 as NSTimeInterval, animations: {
             self.tutorialContainer!.alpha = 0
@@ -69,6 +69,8 @@ class MainVC: CardVC {
                 self.tutorialContainer!.alpha = 1
                 self.tutorialContainer!.removeFromSuperview()
         })
+        tap.enabled = false
+//        self.view.removeGestureRecognizer(tap!)
     }
     
     //==========================================================================================================

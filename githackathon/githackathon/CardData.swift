@@ -13,6 +13,7 @@ import EZSwiftExtensions
 protocol CardDataDelegate {
     func profileImageLoaded(image image: UIImage)
     func imageLoaded(image image: UIImage)
+    func personalityLoaded(personalities: [CardData.Personality])
 }
 
 var GlobalCardId = 0

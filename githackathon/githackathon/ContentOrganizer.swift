@@ -35,52 +35,7 @@ struct ContentOrganizer {
     }
     
     static func shouldLoadData() {
-        // Maybe pagination?
-        
-        if !Cards.isEmpty {
-            var card = Cards[0]
-            QL4(card.twitter)
-            if (card.twitter != nil) {
-                ez.requestJSON("http://friend01k.herokuapp.com/api/twitter_watson/\(card.twitter!)", success: { (data) -> Void in
-
-                    var JSON = data as! NSDictionary
-                    for (k1,v1) in JSON["tree"] as! NSDictionary {
-                        if k1 as! String == "children" {
-                            for v2 in v1 as! NSArray {
-                                for (k3,v3) in v2 as! NSDictionary {
-                                    if k3 as! String == "children" {
-                                        for v4 in v3 as! NSArray {
-                                            if v4["category"] as! String == "personality" {
-                                                for v5 in v4["children"] as! NSArray {
-                                                    for v6 in v5["children"] as! NSArray {
-                                                        var personality = CardData.Personality()
-                                                        personality.name = v6["name"] as? String
-                                                        personality.percentage = String(v6["percentage"] as! Float)
-                                                        if (card.personalities == nil) {
-                                                            card.personalities = [personality]
-                                                        } else {
-                                                            card.personalities!.append(personality)
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                            }
-                        }
-
-
-                    }
-                        
-                    }, error: { (err) -> Void in
-                        QL4(err)
-                })
-                
-            }
-        }
-
+        // Maybe pagination? 
     }
     
     static func shouldCreateCard() {
