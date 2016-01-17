@@ -14,7 +14,7 @@ class LandingVC: UIViewController {
         view.backgroundColor = UIColor.purpleColor()
         
         // Change this with orijinal image
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "TestImage")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundLanding")!)
     }
     
     override func viewDidAppear(animated: Bool) {
