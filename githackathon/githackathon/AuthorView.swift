@@ -37,31 +37,40 @@ class AuthorView: CardSubView {
         let profileView = UIView()
         insideFrame.addSubview(profileView)
         //============================== profileImageView ==============================
+        
+//        var encaplulateImageView = UIView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight, h: Constants.ImageHeight)
+        
+        var circle = UIView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight + 8, h: Constants.ImageHeight + 8)
+            
+        circle.drawCircle(fillColor: UIColor.whiteColor(), strokeColor: UIColor(r: 220, g: 220, b: 220), strokeWidth: 1)
+        
         if currentCardView.data.authorMedia != nil {
-            profileImageView = UIImageView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight, h: Constants.ImageHeight, image: currentCardView.data.authorMedia!)
+            profileImageView = UIImageView(x: 4, y: 4, w: Constants.ImageHeight, h: Constants.ImageHeight, image: currentCardView.data.authorMedia!)
         } else {
-            profileImageView = UIImageView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: -(Constants.ImageHeight/2), w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "Placeholder")
+            profileImageView = UIImageView(x: 4, y: 4, w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "Placeholder")
         }
         //        profileImageView.backgroundColor = UIColor.grayColor()
-//        profileImageView.layer.borderWidth = 1
-//        profileImageView.layer.borderColor = UIColor.grayColor().CGColor
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor(r: 220, g: 220, b: 220).CGColor
         profileImageView.roundSquareImage()
         profileImageView.backgroundColor = UIColor.whiteColor()
-        profileView.addSubview(profileImageView)
+        
+        circle.addSubview(profileImageView)
+        profileView.addSubview(circle)
         //============================== profileImageView ==============================
         
         //============================== Nick Label ==============================
         let nickLabel = UILabel(x: 0, y: 0, w: Constants.WidthToResize, h: Constants.NameHeight)
 //        nickLabel.backgroundColor = UIColor.redColor()
         nickLabel.textAlignment = NSTextAlignment.Left
-        nickLabel.font = UIFont(name: Utility.ThemeFontName, size: 14)
+        nickLabel.font = UIFont(name: Utility.ThemeFontName, size: 16)
         if currentCardView.data.authorName == nil {
-            nickLabel.text = "Fun Fact"
+            nickLabel.text = "FUN FACT"
         } else {
-            nickLabel.text = currentCardView.data.authorName
+            nickLabel.text = currentCardView.data.authorName?.uppercaseString
         }
         nickLabel.resizeToFitWidth()
-        nickLabel.frame = CGRect(x: (sender.CardWidth - nickLabel.w) / 2, y: profileImageView.bottomOffset(20), w: Constants.WidthToResize, h: Constants.NameHeight)
+        nickLabel.frame = CGRect(x: (sender.CardWidth - nickLabel.w) / 2, y: circle.bottomOffset(12), w: Constants.WidthToResize, h: Constants.NameHeight)
         nickLabel.resizeToFitWidth()
         profileView.addSubview(nickLabel)
         //============================== Nick Label ==============================
