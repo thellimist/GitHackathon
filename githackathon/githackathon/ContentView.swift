@@ -28,9 +28,10 @@ class ContentView: CardSubView {
         contentTextView.dataDetectorTypes = UIDataDetectorTypes.Link
         contentTextView.resizeToFitHeight()
         
-//        if contentTextView.h < 100 {
-//            contentTextView.h = 100
-//        }
+        if (sender.data.mediaURL != nil) {
+            contentTextView.frame.origin.y = 10
+            contentTextView.font = UIFont(name: Utility.ThemeFontName, size: 16)
+        }
         
         addSubview(contentTextView)
         resizeToFitSubviews()
