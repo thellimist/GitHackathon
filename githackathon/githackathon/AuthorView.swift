@@ -43,8 +43,8 @@ class AuthorView: CardSubView {
             profileImageView = UIImageView(x: (sender.CardWidth / 2) - Constants.ImageHeight / 2, y: 0, w: Constants.ImageHeight, h: Constants.ImageHeight, imageName: "Placeholder")
         }
         //        profileImageView.backgroundColor = UIColor.grayColor()
-        profileImageView.layer.borderWidth = 1
-        profileImageView.layer.borderColor = UIColor.grayColor().CGColor
+//        profileImageView.layer.borderWidth = 1
+//        profileImageView.layer.borderColor = UIColor.grayColor().CGColor
         profileImageView.roundSquareImage()
         profileView.addSubview(profileImageView)
         //============================== profileImageView ==============================
