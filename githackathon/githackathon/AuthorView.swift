@@ -8,6 +8,7 @@
 
 import UIKit
 import EZAlertController
+import EZSwiftExtensions
 
 class AuthorView: CardSubView {
     
@@ -84,18 +85,64 @@ class AuthorView: CardSubView {
         super.init(frame: CGRect(x: 100, y: 100, w: 100, h: 100))
     }
     
+    var containerView: UIView?
+    func close(sender:UIButton!) {
+        containerView?.removeFromSuperview()
+    }
+    
     func buttonAction(sender:UIButton!)
     {
         QL4("Button tapped")
         
-        if let personalities = self.currentCardView.data.personalities {
-            var text = ""
-            for personality in personalities {
-                text += "\(personality.name!): \(personality.percentage!)\n"
-            }
+        var emojiList = ["Aventurousness": " 🏄",
+                        "Intellect": "🤔",
+                        "Authority-challenging": "👻",
+                        "Artistic interests": "🎭",
+                        "Emotionality": "😳",
+                        "Imagination": "👽"]
+        
+        
+        if let tw = currentCardView.data.twitter {
             
-            EZAlertController.alert(text)
+            containerView = UIView(x: 30, y: 150, w: 350, h: 350)
+//            containerView.backgroundColor = UIColor.blueColor()
+            
+            let webV: UIWebView = UIWebView(frame: CGRectMake(10, 10, 300, 350))
+            webV.loadRequest(NSURLRequest(URL: NSURL(string: "http://friend01k.herokuapp.com/secret/twitter_watson/\(tw)")!))
+            containerView!.addSubview(webV)
+
+            let backButton = UIButton(x: 85, y: 310, w: 150, h: 40)
+            backButton.setTitle("Close", forState: .Normal)
+            backButton.backgroundColor = UIColor.blackColor()
+            backButton.titleLabel?.font = UIFont(name: Utility.ThemeFontName, size: 16)
+//            backButton.titleLabel?.textColor = UIColor.blackColor()
+            backButton.layer.borderWidth = 1
+            backButton.layer.borderColor = UIColor.blackColor().CGColor
+            backButton.addTarget(self, action: "close:", forControlEvents: UIControlEvents.TouchUpInside)
+            containerView!.addSubview(backButton)
+            
+            
+            
+            containerView!.resizeToFitSubviews()
+            
+            ez.topMostVC!.view.addSubview(containerView!)
+            
+            
+            
+//            addSubview(containerView)
+//            bringSubviewToFront(containerView)
+//            bringSubviewToFront(webV)
         }
+        
+        
+//        if let personalities = self.currentCardView.data.personalities {
+//            var text = ""
+//            for personality in personalities {
+//                text += "\(personality.name!): \(personality.percentage!)\n"
+//            }
+//            
+//            EZAlertController.alert(text)
+//        }
     }
     
     func updateProfileImage(image image: UIImage) {

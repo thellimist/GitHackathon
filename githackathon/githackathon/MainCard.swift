@@ -20,7 +20,6 @@ class MainCard: CardView {
     var authorView: AuthorView!
     var contentView: ContentView!
     var imageView: ImageView!
-    var personalityView: PersonalityView!
     //==========================================================================================================
     // MARK: - CardView methods
     //==========================================================================================================
@@ -104,9 +103,7 @@ class MainCard: CardView {
                                                     
                                                     
                                                 }
-//                                                if self.data.delegate != nil {
-//                                                    self.data.delegate!.personalityLoaded(self.data.personalities!)
-//                                                }
+
                                                 return
                                             }
                                         }
@@ -138,11 +135,6 @@ extension MainCard: CardDataDelegate {
     func imageLoaded(image image: UIImage) {
         QL2("loaded card image!")
         imageView.updateImage(image: image)
-    }
-    
-    func personalityLoaded(personalities: [CardData.Personality]) {
-        QL2("loaded card image!")
-        personalityView.updatePersonality(personalities)
     }
 }
 

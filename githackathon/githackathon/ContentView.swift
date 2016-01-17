@@ -36,7 +36,6 @@ class ContentView: CardSubView {
             contentTextView.font = UIFont(name: Utility.ThemeFontName, size: 16)
             contentTextView.resizeToFitHeight()
             resizeToFitSubviews()
-
         }
         w += Constants.Padding
         h += Constants.Padding
