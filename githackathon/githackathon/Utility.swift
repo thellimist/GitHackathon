@@ -11,7 +11,7 @@ import EZSwiftExtensions
 
 struct Utility {
     
-    static let ThemeFontName = "HelveticaNeue"
+    static let ThemeFontName = "SFCompactDisplay-Regular"
     
     static func imageResize (image:UIImage, sizeChange:CGSize)-> UIImage{
         

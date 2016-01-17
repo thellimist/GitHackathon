@@ -12,16 +12,16 @@ class ContentView: CardSubView {
     
     private struct Constants {
         static let HeightToResize: CGFloat = 300
-        static let Padding: CGFloat = 5
+        static let Padding: CGFloat = 20
     }
     
     override func setupView(sender sender: MainCard) {
         super.setupView(sender: sender)
         
-        let contentTextView = UITextView(x: Constants.Padding, y: 50, w: w - Constants.Padding*2, h: h - Constants.Padding)
+        let contentTextView = UITextView(x: Constants.Padding, y: 0, w: w - Constants.Padding*2, h: h - Constants.Padding)
         //        contentTextView.backgroundColor = UIColor.redColor()
-        contentTextView.font = UIFont(name: Utility.ThemeFontName, size: 14)
-        contentTextView.textAlignment = NSTextAlignment.Center
+        contentTextView.font = UIFont(name: Utility.ThemeFontName, size: 20)
+        contentTextView.textAlignment = NSTextAlignment.Left
         contentTextView.text = currentCardView.data.text
         contentTextView.scrollsToTop = false
         contentTextView.selectable = true
