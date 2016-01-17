@@ -8,6 +8,7 @@
 
 import UIKit
 import EZSwiftExtensions
+import Foundation
 
 class ImageView: CardSubView {
     
@@ -57,12 +58,9 @@ class ImageView: CardSubView {
     func updateImage(image image: UIImage) {
         theImageView.image = image
 
-//        let heightRatio = image.size.height /
-//        let newHeigth = image.size.height / heightRatio
-//        let newWidth = image.size.width / heightRatio
-//        frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: newWidth, height: newHeigth)
-        
-        frame = theImageView.frame
+        theImageView.image = image
+        theImageView.scaleImageFrameToWidth(width: currentCardView.CardWidth)
+        self.frame = theImageView.frame
         currentCardView.adjustViewSizes(animated: false, resize: true)
     }
     
